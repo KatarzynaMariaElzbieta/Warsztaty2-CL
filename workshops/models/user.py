@@ -66,6 +66,21 @@ class User:
             return None
 
     @staticmethod
+    def load_user_by_email(cursor, email):
+        sql = "SELECT id, username, email, hashed_password FROM users WHERE email=%s"
+        cursor.execute(sql, (email,))
+        data = cursor.fetchone()
+        if data:
+            loaded_user = User()
+            loaded_user.__id = data['id']
+            loaded_user.username = data['username']
+            loaded_user.email = data['email']
+            loaded_user.__hashed_password = data['hashed_password']
+            return loaded_user
+        else:
+            return None
+
+    @staticmethod
     def load_user_by_id(cursor, user_id):
         sql = "SELECT id, username, email, hashed_password FROM users WHERE id=%s"
         cursor.execute(sql, (user_id,))  # (user_id, ) - bo tworzymy krotkę

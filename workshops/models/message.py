@@ -69,8 +69,8 @@ class Message:
         for m in cursor.fetchall():
             loaded_message = Message()
             loaded_message.__id = m['id']
-            cursor.execute(f"SELECT username FROM USERS WHERE id={m['from_id']}")
-            loaded_message.from_name = cursor.fetchone()['username']
+            cursor.execute(f"SELECT email FROM USERS WHERE id={m['from_id']}")
+            loaded_message.email = cursor.fetchone()['email']
             loaded_message.text = m['text']
             loaded_message.creation_date = m['creation_date']
             messages.append(loaded_message)
