@@ -3,7 +3,7 @@
 By utworzyć użytkownika lub zmienić ustawienia istniejącego uruchom program main.py.
 Program main.py przyjmuje następujące parametry:
 -u lub --username: login użytkownika,
--p lub --password: hasło użytkownika, należy sprawdzić, czy ma minimum osiem znaków,
+-p lub --password: hasło użytkownika (minimum osiem znaków),
 -n lub --new-pass: nowe hasło użytkownika,
 -l lub --list: żądanie wylistowania wszystkich użytkowników,
 -d lub --delete: login użytkownika do usunięcia,
